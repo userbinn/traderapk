@@ -1,0 +1,893 @@
+
+
+
+/* 1. Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* 2. Layout Estrutural */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Limite de largura para telas grandes */
+    margin: 0 auto;
+    padding: 20px; /* Espaçamento interno */
+}
+
+/* 3. Responsividade */
+
+/* Ajustes para tablets (768px - 1024px) */
+@media (min-width: 768px) {
+    .container {
+        padding: 30px; /* Mais espaço interno em telas maiores */
+    }
+}
+
+/* Ajustes para desktops (acima de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 40px; /* Espaçamento extra para grandes resoluções */
+    }
+}
+
+/* 4. Tipografia Básica */
+h1, h2, h3, h4, h5, h6 {
+    color: #00ff6b;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.6; /* Melhor legibilidade */
+    margin-bottom: 15px;
+}
+
+/* Ajuste da fonte para dispositivos móveis */
+body {
+    font-size: 16px; /* Tamanho base para desktop */
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Menor para telas móveis */
+    }
+}
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 2. Header (Cabeçalho) */
+.header {
+    position: relative;
+    background: #000000; /* Fundo preto principal */
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Logo centralizada */
+.header-logo {
+    display: block;
+    margin: 0 auto 15px auto; /* Centraliza a logo e adiciona margem inferior */
+    max-width: 120px; /* Tamanho máximo da logo */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* Efeito de hover para interação */
+}
+
+.header h1 {
+    font-size: 3.5em; /* Tamanho maior para o título */
+    color: #00ff6b; /* Verde vibrante */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5); /* Sombra do texto */
+    margin-bottom: 15px;
+    animation: slideInUp 1s ease-out;
+}
+
+.header p {
+    font-size: 1.4em; /* Tamanho de texto para legibilidade */
+    color: #f0f0f0; /* Texto branco suave */
+    margin-top: 5px;
+    opacity: 0.9;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4); /* Sombra sutil no texto */
+    animation: fadeInText 1.2s ease-out;
+}
+
+/* Fundo preto atrás do título e do texto, sem transparência */
+.header-overlay {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto para destacar o texto */
+}
+
+/* Animações */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de parallax mais sutil */
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Efeito parallax suave */
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+/* Responsividade Ajustada */
+@media (max-width: 1024px) {
+    .header {
+        padding: 60px 20px; /* Ajuste para telas médias */
+    }
+
+    .header h1 {
+        font-size: 2.6em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .header-logo {
+        max-width: 100px; /* Reduz a logo em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 50px 15px;
+    }
+
+    .header h1 {
+        font-size: 2.2em;
+    }
+
+    .header p {
+        font-size: 0.9em;
+    }
+
+    .header-logo {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 40px 10px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header p {
+        font-size: 0.8em;
+    }
+
+    .header-logo {
+        max-width: 70px; /* Logo menor em telas muito pequenas */
+    }
+}
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* Estilo do Banner */
+.banner-container {
+    position: relative;
+    border-radius: 12px;
+    color: #fff;
+    padding: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    animation: fadeBackground 9s infinite; /* Animação para trocar as imagens */
+}
+
+/* Animação para alternar imagens de fundo */
+@keyframes fadeBackground {
+    0% {
+        background-image: url('tigrin.png'); /* Substitua pelos caminhos das suas imagens */
+    }
+    33% {
+        background-image: url('tiger.png');
+    }
+    66% {
+        background-image: url('cassino.png');
+    }
+    100% {
+        background-image: url('sorteio.png'); /* Reinicia o ciclo */
+    }
+}
+
+/* Estilo das Mensagens (Sem Alteração) */
+.banner-option {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transform: translateY(20px);
+    display: none;
+}
+
+.banner-option.active {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+/* Botão */
+.social-button {
+    background-color: #00ff6b;
+    color: #000;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-button:hover {
+    background-color: #00cc5b;
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 4. Navegação (Menu) */
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 90%;
+}
+
+.nav-link {
+    margin: 5px;
+    color: #e0e0e0;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 8px 12px;
+}
+
+.nav-link:hover {
+    color: #00ff6b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.9em;
+        padding: 6px 10px;
+    }
+
+    .navigation {
+        flex-direction: row;
+    }
+}
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 5 Bloco "live-container" Melhorado para Responsividade */
+
+/* Container centralizado e adaptável */
+.center-container {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima para desktops */
+    margin: 0 auto;
+}
+
+/* Bloco de exibição "live" */
+.live-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(0, 128, 0, 0.5), rgba(0, 128, 0, 0.2));
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 128, 0, 0.3);
+    border: 1px solid rgba(0, 128, 0, 0.6);
+    color: #e0fbe0;
+    font-size: 1rem;
+    gap: 10px;
+    animation: pulse 2s infinite;
+    transition: transform 0.2s ease-in-out;
+    flex-wrap: wrap; /* Permite que os itens fiquem empilhados em telas pequenas */
+}
+
+/* Efeito de hover para interação */
+.live-container:hover {
+    transform: scale(1.05);
+}
+
+/* Ícone de live com animação */
+.live-icon {
+    font-size: 1.4rem;
+    animation: blink 1s infinite alternate;
+}
+
+/* Contagem de lives com interação */
+.live-count {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #8aff8a;
+    margin-right: 6px;
+    transition: color 0.3s ease;
+}
+
+.live-count:hover {
+    color: #66ff66;
+}
+
+/* Texto descritivo da live */
+.live-text {
+    font-weight: 500;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .live-container {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .live-count {
+        font-size: 1rem;
+    }
+
+    .live-icon {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animações */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0px 4px 12px rgba(0, 128, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0px 6px 15px rgba(0, 128, 0, 0.4);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 6. Seção de Traders (Contagem e Grid de Cards) */
+#traders {
+    padding: 20px;
+}
+
+.total-traders {
+    text-align: center;
+    color: #8aff8a;
+    font-size: 1.1rem;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Grid de Cards de Traders */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cards ajustados automaticamente */
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos do Card */
+.trader-card {
+    background-color: #1f1f1f;
+    border: 2px solid #3f3f3f;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    max-width: 300px;
+    margin: auto;
+    width: 100%; /* Garante que ocupe o espaço necessário */
+}
+
+/* Efeito hover no Card */
+.trader-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagem do Trader */
+.trader-card img {
+    border-radius: 12px;
+    width: 100%;
+    height: 200px; /* Tamanho fixo para consistência */
+    object-fit: cover; /* Imagem não será distorcida */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito hover na imagem do Card */
+.trader-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Nome do Trader */
+.trader-name {
+    color: #00ff6b;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* Barra de Progresso */
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.progress-container {
+    width: 60%;
+    background-color: #3f3f3f;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    width: 91%;
+    background-color: #00ff6b;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 5px;
+}
+
+.progress-text {
+    font-size: 0.9em;
+    color: #f8f8f8;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Botão Jogar */
+.play-button {
+    background-color: #00ff6b;
+    color: #121212;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #66ff66;
+}
+
+/* Animação de Contagem */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsividade Ajustada para Mobile */
+@media (max-width: 768px) {
+    /* Ajuste a grid para 2 cards por linha no mobile */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);  /* 2 cards por linha */
+        padding: 15px; /* Menos padding para mobile */
+    }
+
+    .trader-card img {
+        object-fit: contain;  /* Ajusta a imagem para não cortar */
+        height: auto;  /* Ajusta a altura */
+        max-height: 180px;  /* Define altura máxima */
+    }
+
+    .trader-card {
+        max-width: 100%;  /* Cards ocupam 100% da largura */
+    }
+}
+
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+/* 7 Bloco de notificação */
+.withdraw-notification {
+    display: flex;
+    align-items: center;
+    background-color: #d9f7be;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.status-icon {
+    color: green;
+    margin-right: 8px;
+}
+
+.user-name {
+    margin-right: 5px;
+}
+
+.amount {
+    color: #1c7d1c;
+}
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 8 Barra de Progresso - Ajuste de Layout e Responsividade */
+.progress-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 180px; /* Reduzido para caber melhor em mobile */
+    margin: 10px auto;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 20px; /* Altura ajustada para ser menos intrusiva em telas pequenas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.85rem; /* Fonte ajustada */
+    transition: width 0.4s ease, background-color 0.4s ease;
+    background-size: 30px 30px;
+    animation: moveStripes 1s linear infinite;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%);
+}
+
+/* Animação da Barra de Progresso */
+@keyframes moveStripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 30px 0;
+    }
+}
+
+
+
+/* Botão "Jogar" - Estilo */
+.play-button {
+    display: block;             /* Garante que ocupe a largura total */
+    width: 100%;                /* Largura total dentro do card */
+    padding: 12px;              /* Espaçamento interno maior */
+    background-color: #ff6d00;  /* Cor padrão */
+    color: #fff;                /* Texto branco */
+    border: none;               /* Remove bordas */
+    border-radius: 6px;         /* Cantos arredondados */
+    font-size: 1rem;            /* Tamanho do texto */
+    font-weight: bold;          /* Texto em negrito */
+    cursor: pointer;            /* Indicador de clicável */
+    text-align: center;         /* Centraliza o texto */
+    text-decoration: none;      /* Remove sublinhado (caso seja link) */
+    transition: background-color 0.3s; /* Transição suave no hover */
+}
+
+/* Efeito Hover no Botão "Jogar" */
+.play-button:hover {
+    background-color: #e65c00;  /* Cor mais escura ao passar o mouse */
+}
+
+/* Responsividade para Dispositivos Móveis */
+@media (max-width: 480px) {
+    .play-button {
+        padding: 10px;         /* Ajusta o espaçamento em telas menores */
+        font-size: 0.95rem;    /* Texto ligeiramente menor */
+    }
+}
+
+
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 9 Estilos Gerais da FAQ */
+.faq-section {
+    padding: 30px;
+    margin-top: 30px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.faq-section h2 {
+    color: #00ff6b;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Cada Item do FAQ */
+.faq-item {
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+}
+
+.faq-item details {
+    color: #00ff6b;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 5px 0;
+}
+
+.faq-item summary span {
+    transition: color 0.3s ease;
+}
+
+.faq-item summary:hover span {
+    color: #00cc5b;
+}
+
+/* Ícone de seta para abrir/fechar FAQ */
+.faq-item .icon-arrow {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #00ff6b;
+    border-bottom: 2px solid #00ff6b;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+/* Rotacionar a seta ao abrir */
+.faq-item details[open] .icon-arrow {
+    transform: rotate(-135deg);
+}
+
+/* Estilo do conteúdo ao expandir */
+.faq-item details p {
+    color: #e0e0e0;
+    font-size: 0.95em;
+    padding: 10px 15px;
+    line-height: 1.6;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    margin-top: 8px;
+    animation: slideDown 0.3s ease;
+}
+
+/* Animação para o conteúdo expandido */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 20px;
+    }
+
+    .faq-section h2 {
+        font-size: 1.6em; /* Tamanho do título um pouco menor para mobile */
+    }
+
+    .faq-item details {
+        font-size: 1em; /* Texto um pouco menor em telas pequenas */
+    }
+
+    .faq-item details p {
+        font-size: 0.9em; /* Texto de resposta ajustado para melhor leitura no mobile */
+        padding: 8px 12px; /* Menos padding para caber bem em telas menores */
+    }
+
+    .faq-item .icon-arrow {
+        width: 10px; /* Redução do tamanho do ícone para não sobrecarregar a tela */
+        height: 10px;
+    }
+}
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/* 10 Estilo para o Rodapé - Final */
+footer {
+    background-color: #1f1f1f;
+    padding: 20px 0;
+    text-align: center;
+    color: #8aff8a;
+    font-size: 1rem;
+    border-top: 1px solid #333;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #00ff6b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #00cc5b;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 0;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+    }
+}
+
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+
+
